@@ -17,3 +17,6 @@
 
 # Ignore tmux file
 postit.sh
+
+# Ingore ruby version
+.ruby-version
