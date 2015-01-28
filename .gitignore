@@ -20,3 +20,7 @@ postit.sh
 
 # Ingore ruby version
 .ruby-version
+
+# Ignore .swp files
+*.swp
+
