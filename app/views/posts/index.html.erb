@@ -1,5 +1,5 @@
-<p class = 'lead'>All Posts</p>
-<hr />
+<%= render 'shared/content_title', title: 'All posts' %>
+
 <% @posts.each do |post| %>
   <div class = 'row'>
     <div class = 'span8 well'>
@@ -9,13 +9,10 @@
       <h4><%= link_to post.title, post.url %></h4>
       <p><%= post.description %></p>
       <p>
-        <span class = 'quiet'>posted by</span> <%= post.creator.username %>
-        <small>at <%= post.created_at %></small>
-      </p>
-      <p>
         <span>
           <small>
             <%= link_to("#{post.comments.size} comments", post_path(post)) %>
+            <%= link_to 'edit', edit_post_path(post) %>
           </small>
         </span>
       </p>

@@ -1,0 +1,29 @@
+<div class='row'>
+  <div class='alert-error span12'>
+    <% if @post.errors.any? %>
+      <h5>There are some errors:</h5>
+      <ul>
+        <% @post.errors.full_messages.each do |msg| %>
+          <li class='alert-error'><%= msg %></li>
+        <% end %>
+      </ul>  
+    <% end %>
+  </div>
+</div>
+
+<%= form_for @post do |f| %>
+  <div class='control-group'>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  <div>
+  <div class='control-group'>
+    <%= f.label :url %>
+    <%= f.text_field :url %>
+  <div>
+  <div class='control-group'>
+    <%= f.label :description %>
+    <%= f.text_area :description, rows: 5 %>
+  <div>
+  <%= f.submit(@post.new_record? ? 'Create Post' : 'Update Post', class: 'btn') %>
+<% end %>
+
