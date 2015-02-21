@@ -1,5 +1,6 @@
 <%= render 'shared/errors', obj: @post %>
 
+<div class='well'>
 <%= form_for @post do |f| %>
   <div class='control-group'>
     <%= f.label :title %>
@@ -15,4 +16,4 @@
   <div>
   <%= f.submit(@post.new_record? ? 'Create Post' : 'Update Post', class: 'btn') %>
 <% end %>
-
+</div>
