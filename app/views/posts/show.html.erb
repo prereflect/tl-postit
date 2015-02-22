@@ -11,17 +11,15 @@
 <p>
   <%= @post.description %>
 </p>
-
 <hr />
 
-<%= form_for [@post, @comment] do |f| %>
-  <%= render 'shared/errors', obj: @comment %>
+<%= render 'shared/errors', obj: @comment %>
 
+<%= form_for [@post, @comment] do |f| %>
   <div class='control-group'>
     <%= f.label :body, 'Leave a comment' %>
     <%= f.text_area :body, rows: 3, class: 'span6' %>
   </div>
-
   <%= f.submit 'Create Comment', class: 'btn' %>
 <% end %>
 
@@ -40,3 +38,4 @@
     </p>
   </div>
 <% end %>
+
