@@ -6,10 +6,37 @@
   <%= render @post.categories %>
 </p>
 
-<p class = 'lead'>
-  <%= @post.title %>
-</p>
+<%= render 'shared/content_title', title: @post.title %>
 
 <p>
   <%= @post.description %>
 </p>
+
+<hr />
+
+<%= form_for [@post, @comment] do |f| %>
+  <%= render 'shared/errors', obj: @comment %>
+
+  <div class='control-group'>
+    <%= f.label :body, 'Leave a comment' %>
+    <%= f.text_area :body, rows: 3, class: 'span6' %>
+  </div>
+
+  <%= f.submit 'Create Comment', class: 'btn' %>
+<% end %>
+
+<%= render 'shared/content_title', title: 'Comments' %>
+
+<% @post.comments.each do |comment| %>
+  <div class='well'>
+    <p>
+      <em><%= comment.body %></em>
+    </p>
+    <p>
+      <span class='quiet'>by</span>
+      <%= comment.creator.username %>
+      <br />
+      <small><span class='quiet'>on</span> <%= display_datetime(comment.created_at) %></small>
+    </p>
+  </div>
+<% end %>
