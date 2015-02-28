@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
 
     if @comment.save
       flash[:notice] = 'Your comment was added.'
-      redirect_to post_path(@post)
+      redirect_to post_url(@post)
     else
       render 'posts/show' 
     end
