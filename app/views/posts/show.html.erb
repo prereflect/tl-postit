@@ -22,8 +22,10 @@
       <%= f.label :body, 'Leave a comment' %>
       <%= f.text_area :body, rows: 3, class: 'span6' %>
     </div>
+
     <%= f.submit 'Create Comment', class: 'btn' %>
   <% end %>
+  
 <% end %>
 
 <%= render 'shared/content_title', title: 'Comments' %>
@@ -33,12 +35,14 @@
     <p>
       <em><%= comment.body %></em>
     </p>
+
     <p>
       <span class='quiet'>by</span>
       <%= comment.creator.username %>
       <br />
       <small><span class='quiet'>on </span><%= comment.created_at %></small>
     </p>
+
   </div>
 <% end %>
 
