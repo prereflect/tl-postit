@@ -14,6 +14,7 @@
         <%= link_to category.name, category_path(category) %>
       </li>
     <% end %>
+    <% if logged_in? %>
     <li class='divider'></li>
     <li>
       <%= link_to(new_category_path) do %>
@@ -21,7 +22,24 @@
         New Category
       <% end %>
     </li>
+  <% end %>
   </ul>
-  <%= link_to 'Register', register_path, class: 'btn btn-small navbar-btn' %>
 </div>
+
+<% if logged_in? %>
+  <div class='nav_item'>
+    <%= link_to 'New Post', new_post_path, class: 'btn btn-small navbar-btn' %>
+  </div>
+  
+  <div class='nav_item'>
+    <%= link_to 'Logout', logout_path, class: 'btn btn-small navbar-btn' %>
+  </div>
+
+<% else %>
+
+  <div class='btn-group nav_item'>
+    <%= link_to 'Register', register_path, class: 'btn btn-small navbar-btn' %>
+    <%= link_to 'Login', login_path, class: 'btn btn-small navbar-btn' %>
+  </div>
+<% end %>
 
