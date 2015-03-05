@@ -14,9 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   def post_owner?
-    if
-      session[:user_id] == @post.user_id
-    end
+    current_user == @post.creator
   end
 
   def require_user
