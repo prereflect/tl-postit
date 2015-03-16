@@ -1,21 +1,42 @@
 <% show_post ||= false %>
 
-<div class='well'>
-  <p>
-    <em><%= comment.body %></em>
-  </p>
-
-  <p>
-    <span class='quiet'>by</span>
-    <%= link_to comment.creator.username, user_path(comment.creator) %>
-
-    <% if show_post %>
-      <span class='quiet'>on</span>
-      <%= link_to comment.post.title, post_path(comment.post) %>
+<div class='row'>
+  <div class='span0 well text-center'>
+    <% if logged_in? %>
+      <p>
+        <%= link_to vote_post_comment_path(comment.post, comment, vote: true), method: 'post' do %>
+          <i class = 'icon-arrow-up'></i>
+        <% end %>
+      </p>
     <% end %>
+    <p>
+      <%= pluralize(comment.total_votes, 'vote') %>
+    </p>
+    <% if logged_in? %>
+      <p>
+        <%= link_to vote_post_comment_path(comment.post, comment, vote: false), method: 'post' do %>
+          <i class = 'icon-arrow-down'></i>
+        <% end %>
+      </p>
+    <% end %>
+  </div>
 
-    <br />
-    <small><%= comment.created_at %></small>
-  </p>
+  <div class='span8 well'>
+    <p>
+      <em><%= comment.body %></em>
+    </p>
+
+    <p>
+      <span class='quiet'>by</span>
+      <%= link_to comment.creator.username, user_path(comment.creator) %>
+
+      <% if show_post %>
+        <span class='quiet'>on</span>
+        <%= link_to comment.post.title, post_path(comment.post) %>
+      <% end %>
+
+      <br />
+      <small><%= comment.created_at %></small>
+    </p>
+  </div>
 </div>
-
