@@ -6,7 +6,7 @@
     </p>
   <% end %>
   <p>
-    <%= post.total_votes %>
+    <%= pluralize(post.total_votes, 'vote') %>
   </p>
   <%= link_to vote_post_path(post, vote: false), method: 'post' do %>
     <p>
@@ -34,7 +34,7 @@
 
   <p>
     <small>
-      <%= link_to("#{post.comments.size} comments", post_path(post)) %>
+      <%= link_to("#{pluralize(post.comments.size, 'comment')}", post_path(post)) %>
     </small>
   </p>
 </div>
