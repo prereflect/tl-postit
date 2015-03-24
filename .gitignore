@@ -24,3 +24,5 @@ postit.sh
 # Ignore .swp files
 *.swp
 
+# Ignore Apple file
+.DS_Store
