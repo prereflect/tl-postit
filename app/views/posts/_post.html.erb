@@ -3,20 +3,24 @@
 <div class = 'well span0 text-center'>
   <% if logged_in? %>
     <p>
-      <%= link_to vote_post_path(post, vote: true), method: 'post' do %>
-        <i class = 'icon-arrow-up'></i>
+      <%= link_to vote_post_path(post, vote: true),
+        method: 'post', remote: true do %>
+          <i class = 'icon-arrow-up'></i>
       <% end %>
     </p>
   <% end %>
 
   <p>
-    <%= pluralize(post.total_votes, 'vote') %>
+    <span id="post_<%= post.id %>_votes">
+      <%= pluralize(post.total_votes, 'vote') %>
+    </span>
   </p>
 
   <% if logged_in? %>
     <p>
-      <%= link_to vote_post_path(post, vote: false), method: 'post' do %>
-        <i class = 'icon-arrow-down'></i>
+      <%= link_to vote_post_path(post, vote: false),
+        method: 'post', remote: true do %>
+          <i class = 'icon-arrow-down'></i>
       <% end %>
     </p>
   <% end %>
@@ -41,7 +45,8 @@
 
   <p>
     <small>
-      <%= link_to("#{pluralize(post.comments.size, 'comment')}", post_path(post)) %>
+      <%= link_to("#{pluralize(post.comments.size, 'comment')}",
+                  post_path(post)) %>
     </small>
   </p>
 </div>
