@@ -30,7 +30,7 @@
 
 <%= render 'shared/content_title', title: 'Comments' %>
 
-<% @post.comments.each do |comment| %>
+<% @post.reload.comments.each do |comment| %>
   <%= render 'comments/comment', comment: comment %>
 <% end %>
 

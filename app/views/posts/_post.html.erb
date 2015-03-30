@@ -11,7 +11,7 @@
   <% end %>
 
   <p>
-    <span id="post_<%= post.id %>_votes">
+    <span id="post_<%= post.slug %>_votes">
       <%= pluralize(post.total_votes, 'vote') %>
     </span>
   </p>
