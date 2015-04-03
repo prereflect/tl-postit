@@ -13,6 +13,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'bcrypt'
 
 gem 'voteable_woller'
+gem 'sluggable_woller'
 
 group :doc do
   gem 'sdoc', require: false
