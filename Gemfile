@@ -12,6 +12,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'bcrypt'
 
+gem 'voteable_woller'
+
 group :doc do
   gem 'sdoc', require: false
 end
