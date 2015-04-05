@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
     Time.zone = current_user.time_zone if current_user
   end
 
-  helper_method :current_user, :logged_in?, :post_owner?
+  helper_method :current_user, :logged_in?, :edit_post?
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -19,8 +19,8 @@ class ApplicationController < ActionController::Base
     !!current_user
   end
 
-  def post_owner?
-    current_user == @post.creator
+  def edit_post?
+    current_user == @post.creator || logged_in? && current_user.admin?
   end
 
   def require_user
@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
   def require_admin
     access_denied unless logged_in? and current_user.admin?
   end
-  
+
   def access_denied
     flash[:error] = 'You are not allowed to perform that action.'
     redirect_to root_url

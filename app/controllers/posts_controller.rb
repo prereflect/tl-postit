@@ -60,16 +60,16 @@ class PostsController < ApplicationController
 
   private
 
-    def post_params
-      params.require(:post).permit(:title, :url, :description, category_ids: [])
-    end
+  def post_params
+    params.require(:post).permit(:title, :url, :description, category_ids: [])
+  end
 
-    def set_post
-      @post = Post.find_by slug: params[:id]
-    end
+  def set_post
+    @post = Post.find_by slug: params[:id]
+  end
 
-    def require_creator
-      access_denied unless logged_in? and (
-        current_user == @post.creator || current_user.admin?)
-    end
+  def require_creator
+    access_denied unless logged_in? and (
+      current_user == @post.creator || current_user.admin?)
+  end
 end
