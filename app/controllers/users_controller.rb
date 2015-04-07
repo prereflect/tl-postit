@@ -37,6 +37,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:username,
                                  :password,
                                  :password_confirmation,
+#                                 :phone,
                                  :time_zone)
   end
 
