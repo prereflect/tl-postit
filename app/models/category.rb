@@ -8,4 +8,3 @@ class Category < ActiveRecord::Base
 
   sluggable_column :name
 end
-

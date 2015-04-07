@@ -16,7 +16,6 @@ class PostsController < ApplicationController
   end
 
   def create
-
     @post = Post.new(post_params)
     @post.creator = current_user
 
@@ -69,7 +68,7 @@ class PostsController < ApplicationController
   end
 
   def require_creator
-    access_denied unless logged_in? and (
+    access_denied unless logged_in? && (
       current_user == @post.creator || current_user.admin?)
   end
 end

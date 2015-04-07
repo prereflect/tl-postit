@@ -14,7 +14,7 @@ gem 'bcrypt'
 
 gem 'voteable_woller'
 gem 'sluggable_woller'
- gem 'twilio-ruby'
+gem 'twilio-ruby'
 
 group :doc do
   gem 'sdoc', require: false

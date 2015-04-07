@@ -17,7 +17,7 @@ class UsersController < ApplicationController
       render :new
     end
   end
-  
+
   def show; end
 
   def edit; end
@@ -46,10 +46,9 @@ class UsersController < ApplicationController
   end
 
   def require_same_user
-   if current_user != @user
-     flash[:error] = 'Your not allowed to do that.'
-     redirect_to root_url
-   end 
+    if current_user != @user
+      flash[:error] = 'Your not allowed to do that.'
+      redirect_to root_url
+    end
   end
 end
-
