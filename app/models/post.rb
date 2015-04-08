@@ -8,8 +8,8 @@ class Post < ActiveRecord::Base
   has_many :categories, through: :post_categories
 
   validates :title, presence: true, length: {minimum: 5}
-  validates :url, presence: true, uniqueness: true
-  validates :description, presence: true
+  validates :url, presence: true, uniqueness: true, length: {maximum: 2048}
+  validates :description, presence: true, length: {maximum: 3838}
 
   sluggable_column :title
 end
